@@ -4,51 +4,41 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Password generation</title>
+	<link rel="shortcut icon" href="./img/favicon.png">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://acruxray.github.io/newage/css/newage.min.css">
-	<style>
-		.result {
-			margin: 3rem 0;
-			font-size: 2rem;
-		}
-
-		input {
-			font-size: 1.5rem;
-			padding: 1rem;
-			box-sizing: border-box;
-			outline: 0;
-			text-align: center;
-			border: 0;
-			border-bottom: 1px solid #c0c0c0;
-		}
-
-		input:hover {
-			border-bottom: 1px solid #212121;
-		}
-	</style>
+	<link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
 
 	<div class="container-vertical">
 		<div class="container large center">
 			<div>
-				<input type="text" id="salt1" placeholder="Salt 1">
+				<input type="text" id="salt1" placeholder="Key 1">
 			</div>
 
 			<div>
-				<input type="text" id="salt2" placeholder="Salt 2">
+				<input type="text" id="salt2" placeholder="Key 2">
 			</div>
 
 			<div>
-				<input type="text" id="password" placeholder="Password">
+				<input type="text" id="password" placeholder="Key 3" autofocus>
 			</div>
 
 			<div id="pg" class="result"></div>
+
+			<a id="clipboard" data-clipboard-target="#pg"><i class="material-icons">content_copy</i><br>Copy to clipboard</a>
+
+			<div>
+				<a href="https://github.com/acruxray/pg" class="btn btn-l black">View on GitHub</a>
+			</div>
 		</div>
 	</div>
 
 	<script src="./js/base64.js"></script>
 	<script src="./js/md5.js"></script>
 	<script src="./js/pg.js"></script>
+	<script src="./js/clipboard.min.js"></script>
 	<script src="./js/main.js"></script>
 
 </body>
