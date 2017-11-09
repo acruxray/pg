@@ -13,4 +13,6 @@ To see a live example, visit [the project page](https://acruxray.github.io/pg).
 
 ## Credits
 
-[Clipboard.js](https://clipboardjs.com/)
+1. [Clipboard.js](https://clipboardjs.com/)
+2. [Base64 encode / decode](http://www.webtoolkit.info/)
+3. [Calculate the md5 hash](http://www.webtoolkit.info/)
