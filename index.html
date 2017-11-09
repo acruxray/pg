@@ -9,31 +9,38 @@
 	<link rel="stylesheet" href="https://acruxray.github.io/newage/css/newage.min.css">
 	<link rel="stylesheet" href="./css/main.css">
 </head>
-<body>
+<body class="grey darken-4 grey-text text-lighten-5">
 
-	<div class="container-vertical">
-		<div class="container large center">
+	<main class="container-vertical small">
+		<div class="container center">
+			<div class="container grey-text text-darken-2 left card no-shadow info">
+				<span>- Set static keys: <b>key 1</b> and <b>key2</b> (optional).</span>
+				<span>- Set dynamic key: <b>key 3</b> (optional).</span>
+				<span>- Focus out <b>key 3</b> field.</span>
+				<span>- Copy generated password to clipboard.</span>
+			</div>
 			<div>
 				<input type="text" id="salt1" placeholder="Key 1">
 			</div>
-
 			<div>
 				<input type="text" id="salt2" placeholder="Key 2">
 			</div>
-
 			<div>
 				<input type="text" id="password" placeholder="Key 3" autofocus>
 			</div>
-
 			<div id="pg" class="result"></div>
+		</div>
+	</main>
 
-			<a id="clipboard" data-clipboard-target="#pg"><i class="material-icons">content_copy</i><br>Copy to clipboard</a>
-
-			<div>
-				<a href="https://github.com/acruxray/pg" class="btn btn-l black">View on GitHub</a>
+	<footer class="nopadding">
+		<div class="navbar small grey darken-3 no-shadow">
+			<div class="links stretch uppercase">
+				<a href="https://github.com/acruxray/pg">GitHub</a>
+				<a id="clear"><i class="material-icons">clear</i></a>
+				<a id="clipboard" data-clipboard-target="#pg"><i class="material-icons">content_copy</i></a>
 			</div>
 		</div>
-	</div>
+	</footer>
 
 	<script src="./js/base64.js"></script>
 	<script src="./js/md5.js"></script>
