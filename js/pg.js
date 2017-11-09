@@ -50,26 +50,11 @@ function pg(salt1, salt2, data){
 
 	var res = pg4Array.join('');
 
-	res = res.replace(base.substr(8,2), '.');
-	res = res.replace(base.substr(9,2), '_');
-	res = res.replace(base.substr(10,2), '^');
-	res = res.replace(base.substr(11,2), '-');
-	res = res.replace(base.substr(12,2), '+');
-	res = res.replace(base.substr(13,2), '*');
-	res = res.replace(base.substr(14,2), '{');
-	res = res.replace(base.substr(15,2), '}');
-	res = res.replace(base.substr(16,2), '[');
-	res = res.replace(base.substr(17,2), ']');
-	res = res.replace(base.substr(18,2), '#');
-	res = res.replace(base.substr(19,2), '@');
-	res = res.replace(base.substr(20,2), '!');
-	res = res.replace(base.substr(21,2), '&');
-	res = res.replace(base.substr(22,2), '?');
-	res = res.replace(base.substr(23,2), '%');
-	res = res.replace(base.substr(24,2), ':');
-	res = res.replace(base.substr(25,2), ';');
-	res = res.replace(base.substr(26,2), '~');
-	res = res.replace(base.substr(27,2), '|');
+	var fr = ['.','_','^','-','+','*','{','}','[',']','#','@','!','&','?','%',':',';','~','|',',','<','>','/','\\','\'','"'];
+
+	for (var i = 8; i <= 34; i++) {
+		res = res.replace(base.substr(i, 2), fr[i - 8]);
+	}
 
 	return res;
 }
