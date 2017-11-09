@@ -19,7 +19,7 @@ window.onload = function() {
 		localStorage.setItem('salt1', salt1);
 		localStorage.setItem('salt2', salt2);
 
-		pgresult.innerHTML = pg(password, salt1, salt2);
+		pgresult.innerHTML = pg(salt1, salt2, password);
 
 		cb.style = 'color: inherit';
 

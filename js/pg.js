@@ -1,4 +1,4 @@
-function pg(data, salt1, salt2){
+function pg(salt1, salt2, data){
 
 	var er=md5(data + salt1);
 
@@ -45,7 +45,7 @@ function pg(data, salt1, salt2){
 			pg4Array[i] = pgArray[j];
 			j++;
 		}
-		
+
 	}
 
 	var res = pg4Array.join('');
