@@ -14,7 +14,7 @@ window.onload = function() {
 
 		var salt1 		= s1.value;
 		var salt2 		= s2.value;
-		var password 	= document.getElementById('password').value;
+		var password 	= pasgen.value;
 
 		localStorage.setItem('salt1', salt1);
 		localStorage.setItem('salt2', salt2);
