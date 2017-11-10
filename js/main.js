@@ -1,7 +1,8 @@
 window.onload = function() {
 
-	var pasgen 		= document.getElementById('password');
-	var pgresult 	= document.getElementById('pg');
+	var pasGen 		= document.getElementById('password');
+	var pgResult 	= document.getElementById('pg');
+	var clearAll 	= document.getElementById('clear_all');
 	var clear 		= document.getElementById('clear');
 	var s1 			= document.getElementById('salt1');
 	var s2 			= document.getElementById('salt2');
@@ -10,28 +11,45 @@ window.onload = function() {
 	s1.value = localStorage.getItem('salt1');
 	s2.value = localStorage.getItem('salt2');
 
-	pasgen.addEventListener('blur', function() {
+	pasGen.addEventListener('blur', function() {
 
 		var salt1 		= s1.value;
 		var salt2 		= s2.value;
-		var password 	= pasgen.value;
+		var password 	= pasGen.value;
 
-		localStorage.setItem('salt1', salt1);
-		localStorage.setItem('salt2', salt2);
+		if (password != '') {
+			localStorage.setItem('salt1', salt1);
+			localStorage.setItem('salt2', salt2);
 
-		pgresult.innerHTML = pg(salt1, salt2, password);
+			pgResult.innerHTML = pg(salt1, salt2, password);
+
+			cb.style = 'color: inherit';
+
+			copyToClipboard('clipboard');
+		}
+
+	});
+
+	clearAll.addEventListener('click', function() {
+
+		s1.value = '';
+		s2.value = '';
+		pasGen.value = '';
+		pasGen.focus();
+		pgResult.innerHTML = '';
+
+		localStorage.removeItem('salt1');
+		localStorage.removeItem('salt2');
 
 		cb.style = 'color: inherit';
-
-		copyToClipboard('clipboard');
 
 	});
 
 	clear.addEventListener('click', function() {
 
-		pasgen.value = '';
-		pasgen.focus();
-		pgresult.innerHTML = '';
+		pasGen.value = '';
+		pasGen.focus();
+		pgResult.innerHTML = '';
 
 		cb.style = 'color: inherit';
 

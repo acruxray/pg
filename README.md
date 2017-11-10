@@ -18,6 +18,8 @@ To see a live example, visit [the project page](https://acruxray.github.io/pg).
 Set to page body:
 
 ```html
+<script src="./js/base64.js"></script>
+<script src="./js/md5.js"></script>
 <script src="./js/pg.js"></script>
 ```
 To generate a password, use the following method:
