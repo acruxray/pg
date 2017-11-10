@@ -1,5 +1,5 @@
 {
-    "name": "",
+    "name": "Password Generation",
     "icons": [
         {
             "src": "/img/android-chrome-192x192.png",
@@ -14,5 +14,6 @@
     ],
     "theme_color": "#666666",
     "background_color": "#666666",
+    "start_url": "https://acruxray.github.io/pg/",
     "display": "standalone"
 }
