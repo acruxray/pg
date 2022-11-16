@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Password generation</title>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
@@ -14,49 +14,73 @@
 	<meta name="msapplication-config" content="./img/browserconfig.xml">
 	<meta name="theme-color" content="#212121">
 
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="https://acruxray.github.io/newage/css/newage.min.css">
-	<link rel="stylesheet" href="./css/main.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
-<body class="grey darken-4 grey-text text-lighten-5">
+<body class="bg-dark">
 
-	<main class="container-vertical small">
-		<div class="container center">
-			<div class="container grey-text text-darken-2 left card no-shadow info">
-				<span>- Set static keys: <b>key 1</b> and <b>key2</b> (optional).</span>
-				<span>- Set dynamic key: <b>key 3</b> (optional).</span>
-				<span>- Focus out <b>key 3</b> field.</span>
-				<span>- Copy generated password to clipboard.</span>
-				<span class="right">View on <a href="https://github.com/acruxray/pg">GitHub</a></span>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col col-sm-10 col-md-7 col-lg-6 col-xl-5 col-xxl-5 mb-5">
+			<div class="accordion accordion-flush my-5" id="accordionFlushInstruction">
+				<div class="accordion-item bg-dark text-white">
+					<h2 class="accordion-header" id="flush-headingOne">
+						<button class="accordion-button collapsed bg-secondary text-white rounded-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+							Instruction
+						</button>
+					</h2>
+					<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushInstruction">
+						<div class="accordion-body">
+							<small>
+								<ol class="lh-lg">
+									<li>Set static keys: <b>key 1</b> and <b>key2</b> (optional).</li>
+									<li>Set dynamic key: <b>key 3</b> (optional).</li>
+									<li>Focus out any key-field.</li>
+									<li>Copy generated password to clipboard.</li>
+								</ol>
+								<div class="text-end">View on <a href="https://github.com/acruxray/pg">GitHub</a></div>
+							</small>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div>
-				<input type="text" id="salt1" placeholder="Key 1">
+
+			<nav class="nav nav-pills flex-column flex-sm-row mb-4">
+				<a class="flex-sm-fill text-sm-center nav-link" href="#" id="t_short">Short</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="#" id="t_middle">Middle</a>
+				<a class="flex-sm-fill text-sm-center nav-link" href="#" id="t_long">Long</a>
+			</nav>
+
+			<div class="mb-5">
+				<input type="text" class="form-control form-control-lg bg-dark text-white text-center border-secondary mb-2" id="salt1" placeholder="Key 1">
+				<input type="text" class="form-control form-control-lg bg-dark text-white text-center border-secondary mb-2" id="salt2" placeholder="Key 2">
+				<input type="text" class="form-control form-control-lg bg-dark text-white text-center border-secondary mb-2" id="password" placeholder="Key 3" autofocus>
 			</div>
-			<div>
-				<input type="text" id="salt2" placeholder="Key 2">
+
+			<div class="mb-5">
+				<input type="text" class="form-control form-control-lg bg-dark text-white text-center border-secondary" id="pg" placeholder="Result" readonly>
 			</div>
-			<div>
-				<input type="text" id="password" placeholder="Key 3" autofocus>
+
+			<div class="btn-group w-100 mb-5" role="group">
+				<button id="clear_all" type="button" class="btn btn-dark">Clear All</button>
+				<button id="clear" type="button" class="btn btn-dark">Clear</button>
+				<button type="button" class="btn btn-secondary" id="clipboard" data-clipboard-target="#pg">Copy</button>
 			</div>
-			<div id="pg" class="result"></div>
+
+			<div class="form-check text-white border-top border-secondary pt-3">
+				<input class="form-check-input" type="checkbox" value="" id="settings_save">
+				<label class="form-check-label text-secondary" for="settings_save">Save settings</label>
+			</div>
 		</div>
-	</main>
+	</div>
+</div>
 
-	<footer class="nopadding">
-		<div class="navbar small grey darken-3 no-shadow">
-			<div class="links stretch uppercase">
-				<a id="clear_all" title="Clear all keys"><i class="material-icons">clear_all</i></a>
-				<a id="clear" title="Clear dinamic key"><i class="material-icons">clear</i></a>
-				<a id="clipboard" data-clipboard-target="#pg" title="Copy to clipboard"><i class="material-icons">content_copy</i></a>
-			</div>
-		</div>
-	</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
-	<script src="./js/base64.js"></script>
-	<script src="./js/md5.js"></script>
-	<script src="./js/pg.js"></script>
-	<script src="./js/clipboard.min.js"></script>
-	<script src="./js/main.js"></script>
+<script src="./js/base64.js"></script>
+<script src="./js/md5.js"></script>
+<script src="./js/pg.js"></script>
+<script src="./js/clipboard.min.js"></script>
+<script src="./js/main.js"></script>
 
 </body>
 </html>
