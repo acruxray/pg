@@ -22,24 +22,17 @@ Set to page body:
 <script src="./js/md5.js"></script>
 <script src="./js/pg.js"></script>
 ```
-To generate a password, use the following method:
+To generate a password, use the following methods:
 
-```javascript
-var password = pg(key1, key2, key3);
+``` js
+pgShort(key1, key2, key3); // 16 symbols
+
+pgMiddle(key1, key2, key3); // 20 symbols
+
+pgLong(key1, key2, key3); // 32 symbols
 ```
 
-Here you can use one, two, or all keys:
-
-```javascript
-var password1 = pg('key 1', '', '');
-var password2 = pg('key 1', 'key 2', '');
-var password3 = pg('key 1', 'key 2', 'key 3');
-var password4 = pg('', 'key 2', 'key 3');
-var password5 = pg('', '', 'key 3');
-var password6 = pg('key 1', '', 'key 3');
-var password7 = pg('', 'key 2', '');
-```
-
+Here you can use one, two, or all keys. By default all getting params are empty-string (`""`).
 
 ## Credits
 
